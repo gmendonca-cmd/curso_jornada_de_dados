@@ -5,25 +5,25 @@ NUMERO_CONSTANTE = 1000 # variaves maisculas são variaveis consantes (nao mutav
 try:
     nome = input("Insira o seu nome: ")
     if len(nome) == 0:
-        raise ValueError("Nome não pode estar vazaio")
-    elif any(char.isdigit() for char in nome):
-        raise ValueError("Nome não pode conter números")
+        raise ValueError("Nome não pode estar vazaio") # raise é usado para forçamos o erro, logo em seguida, especificamos o erro
+    elif any(char.isdigit() for char in nome): # usado pra descobrir se existe número no input
+        raise ValueError("Nome não pode conter números") 
     else:
         print("Nome Válido")
-except ValueError as e:
+except ValueError as e:  # faz exibir o tipo de erro
     print(e)
 
 try:
     salario = float(input("Digite o seu salário: "))
     if salario < 0:
-        print("O salário não pode ser negativo")
+        raise ValueError("O salário não pode ser negativo")
 except ValueError:
     print("Verifique se há apenas números")
 
 try:
     bonus = float(input("Digite o valor do bônus. Ex: 1.5 (50%): "))
     if bonus < 0:
-        print("O valor do bônus não pode ser negativo")
+        raise ValueError("O valor do bônus não pode ser negativo")
 except ValueError:
     print("Verifique se há apenas números")
 
