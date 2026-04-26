@@ -89,17 +89,18 @@ except ValueError:
 # a R$ 10.000 ou se ocorrer fora do horário comercial (antes das 9h ou depois das 18h). 
 # Dada uma transação como `transacao = {'valor': 12000, 'hora': 20}`, verifique se ela é suspeita.
 
-# transacao = {'valor': 10000, 'hora': 18}
+transacao = {'valor': 10000,
+             'hora': 18}
 
-# try:
-#     verificacao_valor = transacao['valor']
-#     verificacao_hora = transacao['hora']
+try:
+    verificacao_valor = transacao['valor']
+    verificacao_hora = transacao['hora']
     
-#     if verificacao_valor > 10000 or (verificacao_hora < 9 or verificacao_hora > 18):
-#         print("Transação Suspeita")
-#     else:
-#         print("Transação normal") 
-# except KeyError as e:
-#     print(f"O campo {e} está faltando na transação")
-# except TypeError:
-#     print("Os dados da transação não são números válidos")
+    if verificacao_valor > 10000 or (verificacao_hora < 9 or verificacao_hora > 18):
+        print("Transação Suspeita")
+    else:
+        print("Transação normal") 
+except KeyError as e:
+    print(f"O campo {e} está faltando na transação")
+except TypeError:
+    print("Os dados da transação não são números válidos")

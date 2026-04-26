@@ -1,23 +1,23 @@
-# i = 0
-# while i <= 10: 
-#     print(i)
-#     i += 1 # para acrescentar 1 a cada vez que passa no laço. só vai parar quando i for maior que 10  
+i = 0
+while i <= 10: 
+    print(i)
+    i += 1 # para acrescentar 1 a cada vez que passa no laço. só vai parar quando i for maior que 10  
 
 
 ### exercicios de fixação 
 # 1. Você está criando um sistema que pede uma senha para o usuário.
 # Você quer que o programa continue pedindo a senha enquanto o que ele digitar for diferente da senha correta.
 
-# try:
-#     senha = input("Por favor, digite sua senha: ")
+try:
+    senha = input("Por favor, digite sua senha: ")
     
-#     while senha != "python123":
-#         print("Senha incorreta")
-#         senha = input("Por favor, digite a senha novamente: ")
-#     print("Acesso liberado")
+    while senha != "python123":
+        print("Senha incorreta")
+        senha = input("Por favor, digite a senha novamente: ")
+    print("Acesso liberado")
 
-# except: 
-#     print("Erro ao digitar a senha")
+except: 
+    print("Erro ao digitar a senha")
 
 
 # 02. Imagine que você recebeu uma caixa com várias frutas (um número que o usuário vai digitar). Você precisa "processar" cada fruta, uma por uma, exibindo na 
@@ -65,7 +65,6 @@ print(f"O total das notas é: {total}")
 # os pacotes do estoque enquanto o estoque for maior que 10. Quando atingir 10 ou menos, o programa para e avisa: "Alerta: Estoque crítico! Reposição necessária."
 
 
-
 estoque = 100
 while estoque >= 11:
     try:
@@ -89,14 +88,61 @@ print(f"Alerta: Estoque crítico!({estoque}) Reposição necessária")
 ### Exercício 11. Leitura de Dados até Flag
 # Ler dados de entrada até que uma palavra-chave específica ("sair") seja fornecida.
 
+entrada = input("Digite a palavra correta para sair do loop: ").lower
+
+while entrada != "sair":
+    entrada = input("Digite a palavra correta para sair do loop: ")
+
+
 ### Exercício 12. Validação de Entrada
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
+
+intervalo = int(input("Quantos anos você tem? "))
+while (intervalo < 18 or intervalo > 65): # se for menor que 18 ou maior que 65 
+    try:
+        intervalo = int(input("Quantos anos você tem? "))
+    except ValueError:
+        print("Por favor, digite apenas números inteiros")
 
 ### Exercício 13. Consumo de API Simulado
 # Simular o consumo de uma API paginada, onde cada "página" de dados é processada em loop até que não haja mais páginas.
 
+pagina_atual = 1
+paginas_totais = 5  # Simulação, na prática, isso viria da API
+
+while pagina_atual <= paginas_totais:
+    print(f"Processando página {pagina_atual} de {paginas_totais}")
+    # Aqui iria o código para processar os dados da página
+    pagina_atual += 1
+
+print("Todas as páginas foram processadas.")
+
+
 ### Exercício 14. Tentativas de Conexão
 # Simular tentativas de reconexão a um serviço com um limite máximo de tentativas.
 
+tentativas = 1
+limite = 10
+while tentativas <= limite:
+    print(f"Tentando se reconectar... {tentativas}/10")
+        # Simulação de uma tentativa de conexão
+        # Aqui iria o código para tentar conectar
+    tentativas += 1
+    if True:  # Suponha que a conexão foi bem-sucedida
+        print("Conexão bem-sucedida!")
+        break
+else:
+    print("Falha ao se conectar após várias tentativas")
+
 ### Exercício 15. Processamento de Dados com Condição de Parada
 # Processar itens de uma lista até encontrar um valor específico que indica a parada.
+
+lista = ["ronaldo", "robson", "caiado", "sixseven"]
+palavra_chave = "caiado"
+index = 0
+
+while index < len(lista): # percorre do index zero ate o final da lista
+    if lista[index] == palavra_chave: 
+        break
+    print(lista[index]) # vai printando até chegar na palavra chave
+    index +=1
