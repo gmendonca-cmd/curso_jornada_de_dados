@@ -5,7 +5,7 @@ NUMERO_CONSTANTE = 1000 # variaves maisculas são variaveis consantes (nao mutav
 try:
     nome = input("Insira o seu nome: ")
     if len(nome) == 0:
-        raise ValueError("Nome não pode estar vazaio") # raise é usado para forçamos o erro, logo em seguida, especificamos o erro
+        raise ValueError("Nome não pode estar vazio") # raise é usado para forçamos o erro, logo em seguida, especificamos o erro
     elif any(char.isdigit() for char in nome): # usado pra descobrir se existe número no input
         raise ValueError("Nome não pode conter números") 
     else:
